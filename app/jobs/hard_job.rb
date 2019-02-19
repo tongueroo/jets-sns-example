@@ -5,17 +5,17 @@ class HardJob < ApplicationJob
   # Comment out if you have created the hello-topic. To create:
   #
   #   aws sns create-topic --name hello-topic
-  sns_event "hello-topic" # existing topic
-  def fix
-    puts "fix #{JSON.dump(event)}"
-  end
+  # sns_event "hello-topic" # existing topic
+  # def fix
+  #   puts "fix #{JSON.dump(event)}"
+  # end
 
   sns_event :generate_topic, topic_properties: {display_name: "My awesome topic"}
   def lift
     puts "lift #{JSON.dump(event)}"
   end
 
-  sns_event "!Ref Engineering"
+  sns_event ref(:engineering)
   def clean
     puts "clean #{JSON.dump(event)}"
   end
