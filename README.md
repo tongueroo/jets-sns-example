@@ -14,6 +14,12 @@ Next, we'll deploy the app to AWS Lambda with [jets deploy](http://rubyonjets.co
 
     jets deploy
 
+## Publish Test Message
+
+Here's an example of publishing a test message with the [aws sns publish](https://docs.aws.amazon.com/cli/latest/reference/sns/publish.html) cli.
+
+    aws sns publish --topic-arn arn:aws:sns:us-west-2:112233445566:my-topic --message '{"default": "test message"}'
+
 Here's the blog article:
 
 * Blog Post: []()
